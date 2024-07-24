@@ -374,3 +374,76 @@ button:active {
     opacity: 1;
     transform: translateY(0);
 }
+
+@media screen and (max-width: 670px) {
+    .container {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    header {
+        padding: 0 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hamburger {
+        font-size: 28px;
+    }
+
+    .nav-menu {
+        width: 100%;
+    }
+
+    .aboutwebsite,
+    .hodaka-container,
+    .hinamano-container,
+    .message-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #hodakaimg,
+    #hinamanoimg,
+    #hodaka2 {
+        width: 40%;
+        height: auto;
+    }
+
+    .message-container {
+        margin-left: 0;
+    }
+
+    #weather-container {
+        width: 90%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .hourly-item {
+        width: 60px;
+        margin-right: 5px;
+    }
+
+    .hourly-item img {
+        width: 20px;
+        height: 20px;
+    }
+
+    #temp-div p {
+        font-size: 40px;
+    }
+
+    #weather-info {
+        font-size: 16px;
+    }
+
+    #weather-icon {
+        width: 100px;
+        height: 100px;
+    }
+}
