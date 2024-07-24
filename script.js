@@ -1,5 +1,4 @@
 function getWeather() {
-    const apiKey = process.env.API_KEY;
     const city = document.getElementById('city').value;
 
     if (!city) {
@@ -7,29 +6,21 @@ function getWeather() {
         return;
     }
 
-    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+    const apiUrl = `/api/getWeather?city=${city}`;
 
-    fetch(currentWeatherUrl)
+    fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-
-            displayWeather(data);
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+            displayWeather(data.currentWeather);
+            displayHourlyForecast(data.forecast.list);
         })
         .catch(error => {
-            console.error('Error fetching current weather data: ', error);
-            alert('Error fetching current weather data. Please try again.');
-
-        });
-
-    fetch(forecastUrl)
-        .then(response => response.json())
-        .then(data => {
-            displayHourlyForecast(data.list);
-        })
-        .catch(error => {
-            console.error('Error fetching hourly forecast data: ', error);
-            alert('Error fetching hourly forecast data. Please try again.');
+            console.error('Error fetching weather data: ', error);
+            alert('Error fetching weather data. Please try again.');
         });
 }
 
