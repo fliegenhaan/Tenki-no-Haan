@@ -45,7 +45,7 @@ function displayWeather(data) {
     tempDivInfo.innerHTML = '';
 
     if (data.cod === '404') {
-        weatherInfoDiv.innerHTML = <p>${data.message}</p>;
+        weatherInfoDiv.innerHTML = `<p>${data.message}</p>`;
     } else {
         const cityName = data.name;
         const temperature = Math.round(data.main.temp - 273.15);
@@ -74,7 +74,7 @@ function displayWeather(data) {
         showImage();
 
         let customMessage = '';
-        
+
         if (description.includes('thunderstorm')) {
             customMessage = "Oh no, looks like I should contact my girlfriend to reschedule our date for another day.";
         } else if (description.includes('rain')) {
@@ -91,7 +91,7 @@ function displayWeather(data) {
             customMessage = "Hmmm, It seems like it's not a good weather for a date.";
         }
 
-        customMessageDiv.innerHTML = <p>${customMessage}</p>;
+        customMessageDiv.innerHTML = `<p>${customMessage}</p>`;
     }
 }
 
