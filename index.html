@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenki no Haan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+          <div class="header-center">
+            <h1 class="logo">Tenki no Haan</h1>
+          </div>
+          <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </div>
+        <nav id="navMenu" class="nav-menu">
+          <ul>
+            <li><a href="#abtwebsite">About Website</a></li>
+            <li><a href="#weather">Go Straight to Weather App</a></li>
+          </ul>
+        </nav>
+    </header>
+    <div class="leggo">
+      <h1> <span id="lets">Let's</span> Weathering <span id="with">with</span> Haan!</h1>
+    </div>
+    <div class="opening-wrapper">
+        <p>Play this music while exploring this website to enhance user experience</p>
+        <audio id="background-audio" loop>
+          <source src="backsound1.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+        <button id="play-audio-btn" onclick="getAudio()">Play Audio</button>
+        <div id="abtwebsite" class="aboutwebsite">
+          <div class="titleforweb">
+            <h1 class="no-underline">天気のハーン</h1>
+          </div>
+          <h1>Welcome to Tenki no Haan</h1>
+          <p>Welcome to Tenki no Haan, your go-to weather app inspired by the enchanting world of anime.<br>
+          The name "Tenki no Haan" combines the Japanese word "tenki" or 天気 (meaning weather) with the name<br>
+          of the app's creator, Raihaan. This unique name reflects the harmonious blend of cultural<br>
+          elements and personal passion that make this app special.</p>
+          <div class="anime hidden">
+            <h1>Anime-Inspired Design</h1>
+            <p>Our website draws inspiration from the popular anime "Tenki no Ko" (Weathering with You),<br>
+            capturing its beautiful and whimsical aesthetic. We aim to provide not just accurate weather<br>
+            forecasts but also an engaging and visually appealing experience.</p>
+          </div>
+          <div class="accurate hidden">
+            <h1>Accurate and Reliable Weather Information</h1>
+            <p>Stay informed with up-to-date weather data tailored to your location. Tenki no Haan offers<br>
+            detailed 24-hour forecasts in 2-hour intervals. Whether you're planning your day, week, or a<br>
+            special event, our app ensures you have the most accurate weather information to stay prepared.</p>
+          </div>
+          <div class="user hidden">
+            <h1>User-Friendly Interface</h1>
+            <p>Navigating through Tenki no Haan is a breeze. Our intuitive design ensures that you can<br>
+            quickly access the information you need without any hassle. The anime-themed visuals add a touch<br>
+            of fun and creativity to your daily weather checks.</p>
+          </div>
+        </div>
+    </div>
+    <div class="anime-wrapper">
+      <div class="row hidden">
+        <div class="hodaka-container">
+          <p>Finally, the holiday is here, and I'm going on a date with my beloved girlfriend, Hina Amano. Hopefully, this time won't be like our last date that got ruined by rain because we didn't have an umbrella.<br>Now, I'm prepared with an umbrella to avoid it happening again!</p>
+        </div>
+        <img id="hodakaimg" src="hodaka.png" alt="hodaka">
+      </div>
+      <div class="row hidden">
+        <img id="hinamanoimg" src="hinamano.png" alt="hinamano">
+        <div class="hinamano-container">
+          <p>Oh my god, I can't wait to fill my days with our fun date activities. But instead of carrying this umbrella everywhere without knowing if it will rain today,<br>how about we check the weather on the highly detailed and accurate weather checking website, Tenki no Haan!<br>That way, we can decide whether we need to bring this umbrella or not.</p>   
+        </div>
+      </div>
+    </div>
+    <div id="weather" class="weather-wrapper hidden">
+      <div id="weather-container">
+          <h2>Weather App</h2>
+          <p>Check the current weather conditions and weather forecast for the next 24 hours</p>
+          <input type="text" id="city" placeholder="Enter city">
+          <button onclick="getWeather()">Check</button>
+
+          <img id="weather-icon" alt="Weather Icon">
+
+          <div id="temp-div"></div>
+
+          <div id="weather-info"></div>
+
+          <div id="hourly-forecast"></div>
+      </div>
+    </div>
+    <div class="message">
+      <div class="message-container">
+        <div id="custom-message">Waiting for the weather estimation...</div>
+      </div>
+      <img id="hodaka2" src="hodaka2.png" alt="hodaka2">
+    </div>
+    <script src="./script.js"></script>   
+</body>
+</html>
