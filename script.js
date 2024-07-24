@@ -1,4 +1,5 @@
 function getWeather() {
+    const apiKey = '831f61542d1021a2649db61737e74203';
     const city = document.getElementById('city').value;
 
     if (!city) {
@@ -6,21 +7,29 @@ function getWeather() {
         return;
     }
 
-    const apiUrl = `/api/getWeather?city=${city}`;
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
-    fetch(apiUrl)
+    fetch(currentWeatherUrl)
         .then(response => response.json())
         .then(data => {
-            if (data.error) {
-                alert(data.error);
-                return;
-            }
-            displayWeather(data.currentWeather);
-            displayHourlyForecast(data.forecast.list);
+
+            displayWeather(data);
         })
         .catch(error => {
-            console.error('Error fetching weather data: ', error);
-            alert('Error fetching weather data. Please try again.');
+            console.error('Error fetching current weather data: ', error);
+            alert('Error fetching current weather data. Please try again.');
+
+        });
+
+    fetch(forecastUrl)
+        .then(response => response.json())
+        .then(data => {
+            displayHourlyForecast(data.list);
+        })
+        .catch(error => {
+            console.error('Error fetching hourly forecast data: ', error);
+            alert('Error fetching hourly forecast data. Please try again.');
         });
 }
 
@@ -36,7 +45,7 @@ function displayWeather(data) {
     tempDivInfo.innerHTML = '';
 
     if (data.cod === '404') {
-        weatherInfoDiv.innerHTML = `<p>${data.message}</p>`;
+        weatherInfoDiv.innerHTML = <p>${data.message}</p>;
     } else {
         const cityName = data.name;
         const temperature = Math.round(data.main.temp - 273.15);
@@ -82,7 +91,7 @@ function displayWeather(data) {
             customMessage = "Hmmm, It seems like it's not a good weather for a date.";
         }
 
-        customMessageDiv.innerHTML = `<p>${customMessage}</p>`;
+        customMessageDiv.innerHTML = <p>${customMessage}</p>;
     }
 }
 
